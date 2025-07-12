@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: flyingtof
+      changes:
+        - createTable:
+            tableName: dossier_remboursement
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: date_soin
+                  type: date
+              - column:
+                  name: justificatifs
+                  type: text
+              - column:
+                  name: statut
+                  type: varchar(50)
+              - column:
+                  name: nom
+                  type: varchar(255)
+              - column:
+                  name: numero_assure
+                  type: int
+              - column:
+                  name: type_soin
+                  type: varchar(50)
+              - column:
+                  name: montant
+                  type: currency
+              - column:
+                  name: date_demande
+                  type: date
+              - column:
+                  name: commentaire
+                  type: text
+              - column:
+                  name: date_decision
+                  type: date
+              - column:
+                  name: decision
+                  type: varchar(50)
+        - sql:
+            sql: |
+              ALTER TABLE dossier_remboursement 
+                ADD CONSTRAINT type_soin_check 
+                  CHECK (type_soin IN ('CONSULTATION', 'HOSPITALISATION', 'ANALYSE', 'RADIOLOGIE', 'AUTRE'));
+              ALTER TABLE dossier_remboursement 
+                ADD CONSTRAINT statut_check
+                  CHECK (statut IN ('INCOMPLET', 'COMPLET', 'SUSPECT'));
+              ALTER TABLE dossier_remboursement 
+                ADD CONSTRAINT decision_check
+                  CHECK (decision IN ('ACCEPTE', 'REJETTE', 'EN_ATTENTE'));

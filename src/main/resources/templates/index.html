@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assistant Assurance</title>
+    <style>
+        .conversation {
+            margin: 20px;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+        }
+        .user-message {
+            color: blue;
+            margin: 10px 0;
+            text-align: left;
+            width: 90%;
+        }
+        .agent-message {
+            background-color: #f6f8fa;
+            color: green;
+            margin: 10px 0;
+            text-align: left;
+            width: 90%;
+            padding: 1em;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .input-area {
+            margin: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 95%;
+        }
+        textarea {
+            width: 80%;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <input type="hidden" id="conversationId">
+    <div class="conversation" id="conversation"></div>
+
+    <div class="input-area">
+        <textarea id="userInput" placeholder="Tapez votre message ici..."></textarea>
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+</html>

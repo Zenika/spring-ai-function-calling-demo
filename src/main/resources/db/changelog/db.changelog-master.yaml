@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: changes/01-create-dossier-remboursement.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/02-insert-dossiers-remboursement.yaml
+      relativeToChangelogFile: true
