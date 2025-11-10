@@ -1,4 +1,4 @@
-package com.zenika.demo.ai.agentic.agenticaidemo.remboursements;
+package com.zenika.demo.ai.functioncalling.remboursements;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

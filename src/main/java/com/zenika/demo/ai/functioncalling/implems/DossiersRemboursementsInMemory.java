@@ -1,9 +1,9 @@
-package com.zenika.demo.ai.agentic.agenticaidemo.implems;
+package com.zenika.demo.ai.functioncalling.implems;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zenika.demo.ai.agentic.agenticaidemo.remboursements.DossierRemboursement;
-import com.zenika.demo.ai.agentic.agenticaidemo.remboursements.DossiersRemboursements;
+import com.zenika.demo.ai.functioncalling.remboursements.DossierRemboursement;
+import com.zenika.demo.ai.functioncalling.remboursements.DossiersRemboursements;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -16,7 +16,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Repository
-//@Primary
 @Slf4j
 public class DossiersRemboursementsInMemory implements DossiersRemboursements {
 
@@ -53,7 +52,7 @@ public class DossiersRemboursementsInMemory implements DossiersRemboursements {
     }
 
     @Override
-    public QueryResult findByNaturalLanguageQuery(String query, String conversationId) {
+    public QueryResult findByNaturalLanguageQuery(String query) {
         throw new UnsupportedOperationException("In memory repository does not support queries by natural language.");
     }
 }

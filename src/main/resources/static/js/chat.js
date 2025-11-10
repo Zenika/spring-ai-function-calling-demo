@@ -44,7 +44,7 @@ function sendMessage() {
             message: message
         })
     }).then(response => {
-        if (response.status != 200) {
+        if (response.status !== 200) {
             chatResponseContent.textContent = 'erreur de l\'agent';
             return;
         }

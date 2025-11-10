@@ -8,11 +8,11 @@
         <version>3.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.zenika.demo.ai.agentic</groupId>
-    <artifactId>agentic-AI-demo</artifactId>
+    <groupId>com.zenika.demo.ai</groupId>
+    <artifactId>spring-ai-function-calling-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>agentic-AI-demo</name>
-    <description>agentic-AI-demo</description>
+    <name>spring-ai-function-calling-demo</name>
+    <description>spring-ai-function-calling-demo</description>
     <url/>
     <licenses>
         <license/>
@@ -28,7 +28,7 @@
     </scm>
     <properties>
         <java.version>21</java.version>
-        <spring-ai.version>1.1.0-SNAPSHOT</spring-ai.version>
+        <spring-ai.version>1.0.3</spring-ai.version>
         <mapstruct.version>1.6.3</mapstruct.version>
     </properties>
     <dependencies>

@@ -1,6 +1,6 @@
-package com.zenika.demo.ai.agentic.agenticaidemo.ai;
+package com.zenika.demo.ai.functioncalling.ai;
 
-import com.zenika.demo.ai.agentic.agenticaidemo.config.DossierRemboursementConfiguration;
+import com.zenika.demo.ai.functioncalling.config.DossierRemboursementConfiguration;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -54,11 +54,16 @@ public class DossierRemboursementPrompter {
                 var endTime = System.nanoTime() * 1.0;
                 var durationSec = (endTime - startTime.get()) / 1_000_000_000;
                 return Flux.just("\n", "\n", "Temps de traitement : " + durationSec + " sec");
-            }))
-            .doOnEach(stringSignal -> System.out.print(stringSignal.get()))
-            ;
+            }));
     }
 
+    /**
+     * Traite une demande de remboursement de manière synchrone.
+     *
+     * @param demande        la demande utilisateur
+     * @param conversationId l'identifiant de la conversation pour la mémoire de chat
+     * @return la réponse de l'agent d'assurance concernant le dossier
+     */
     public String traiterDemande(String demande, String conversationId) {
         return getPrompt(demande, conversationId).call().content();
     }
@@ -68,7 +73,6 @@ public class DossierRemboursementPrompter {
             .prompt(demande)
             .system(systemPrompt)
             .tools(dossierRemboursementTools)
-            .toolContext(Map.of("conversationId", conversationId))
             .advisors(
                 MessageChatMemoryAdvisor.builder(chatMemory)
                     .conversationId(conversationId)

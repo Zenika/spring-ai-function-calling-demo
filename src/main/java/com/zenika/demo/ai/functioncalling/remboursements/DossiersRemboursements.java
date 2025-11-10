@@ -1,4 +1,4 @@
-package com.zenika.demo.ai.agentic.agenticaidemo.remboursements;
+package com.zenika.demo.ai.functioncalling.remboursements;
 
 import java.util.List;
 import java.util.Map;
@@ -27,8 +27,7 @@ public interface DossiersRemboursements {
      * Récupère tous les dossiers de remboursement à partir d'une requête en langage naturel.
      *
      * @param query          la requête en langage naturel
-     * @param conversationId
      * @return la liste des dossiers correspondants
      */
-    QueryResult findByNaturalLanguageQuery(String query, String conversationId);
+    QueryResult findByNaturalLanguageQuery(String query);
 }

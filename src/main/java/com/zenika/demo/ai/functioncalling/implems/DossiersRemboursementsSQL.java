@@ -1,9 +1,9 @@
-package com.zenika.demo.ai.agentic.agenticaidemo.implems;
+package com.zenika.demo.ai.functioncalling.implems;
 
-import com.zenika.demo.ai.agentic.agenticaidemo.ai.DossierRemboursementSQLPrompter;
-import com.zenika.demo.ai.agentic.agenticaidemo.implems.DossierRemboursementSQLSpring.DossierRemboursementSQL;
-import com.zenika.demo.ai.agentic.agenticaidemo.remboursements.DossierRemboursement;
-import com.zenika.demo.ai.agentic.agenticaidemo.remboursements.DossiersRemboursements;
+import com.zenika.demo.ai.functioncalling.ai.DossierRemboursementSQLPrompter;
+import com.zenika.demo.ai.functioncalling.implems.DossierRemboursementSQLSpring.DossierRemboursementSQL;
+import com.zenika.demo.ai.functioncalling.remboursements.DossierRemboursement;
+import com.zenika.demo.ai.functioncalling.remboursements.DossiersRemboursements;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.Mapper;
@@ -51,8 +51,8 @@ public class DossiersRemboursementsSQL implements DossiersRemboursements {
 
     @SneakyThrows
     @Override
-    public QueryResult findByNaturalLanguageQuery(String query, String conversationId) {
-        var sqlQuery = queryPrompter.getSQL(query, conversationId);
+    public QueryResult findByNaturalLanguageQuery(String query) {
+        var sqlQuery = queryPrompter.getSQL(query);
         log.debug("SQL query: {}", sqlQuery);
         var rows = jdbcTemplate.query(
             sqlQuery.sql(),

@@ -1,6 +1,6 @@
-package com.zenika.demo.ai.agentic.agenticaidemo.implems;
+package com.zenika.demo.ai.functioncalling.implems;
 
-import com.zenika.demo.ai.agentic.agenticaidemo.remboursements.DossierRemboursement;
+import com.zenika.demo.ai.functioncalling.remboursements.DossierRemboursement;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 import org.springframework.data.repository.CrudRepository;

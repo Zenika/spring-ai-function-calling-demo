@@ -8,13 +8,14 @@ spring:
     ollama:
       chat:
         model: llama3.1:8b
+#        model: llama3-groq-tool-use:8b
 #        model: llama3.2:3b
 #        model: hf.co/Salesforce/xLAM-1b-fc-r-gguf
 #        model: hf.co/Salesforce/xLAM-1b-fc-r
-      init:
-        pull-model-strategy: when_missing
         options:
           temperature: 0.1
+      init:
+        pull-model-strategy: when_missing
   datasource:
     url: jdbc:postgresql://localhost:5432/dossiers_remboursements
   docker:
@@ -24,10 +25,8 @@ spring:
 logging:
   level:
     org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: debug
-#    com.zenika.demo.ai.agentic.agenticaidemo.api.ConversationController: debug
-#    org.springframework.web.client.DefaultRestClient: debug
-#    org.springframework.web.reactive.function.client.ExchangeFunctions: debug
+    com.zenika.demo.ai.agentic.agenticaidemo: debug
 
 dossier-remboursement:
-  sql-system-prompt: classpath:prompts/dossier-remboursement-sql-query-system-prompt.md
-  system-prompt: classpath:prompts/dossier-remboursement-system-prompt.md
+  sql-system-prompt: classpath:prompts/dossier-remboursement-sql-query-system-prompt-en.md
+  system-prompt: classpath:prompts/dossier-remboursement-system-prompt-en.md
